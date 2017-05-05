@@ -8,7 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jyaaan/react-notes.git"
+    "url": "git+https://github.com/jyaaan/react-notes.git",
+    "bundle": "broserify /client/index.js -t babelify -o /client/main.js"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +17,14 @@
   "bugs": {
     "url": "https://github.com/jyaaan/react-notes/issues"
   },
-  "homepage": "https://github.com/jyaaan/react-notes#readme"
+  "homepage": "https://github.com/jyaaan/react-notes#readme",
+  "devDependencies": {
+    "babelify": "^7.3.0",
+    "browserify": "^14.3.0"
+  },
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "redux": "^3.6.0"
+  }
 }
