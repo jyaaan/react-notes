@@ -6,6 +6,7 @@ const { NotesList, NoteForm } = require('../notes');
 const render = () => {
   const currState = store.getState();
   const $container = document.querySelector('.container');
+  console.log(currState);
   ReactDOM.render(
     <div>
       <NoteForm {...currState} />

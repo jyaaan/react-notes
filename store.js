@@ -11,12 +11,12 @@ const notes = (state = initialState, action) => {
   }
 }
 
-const noteInput = (state = ['default text'], action) => {
+const noteInput = (state = '', action) => {
   switch (action.type) {
     case 'INPUT_CHANGED':
-      return 'will reflect change later';
+      return action.text;
     case 'NOTE_CREATED':
-      return 'note should have been created';
+      return '';
     default:
       return state;
   }
