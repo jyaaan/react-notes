@@ -1,5 +1,6 @@
 const React = require('react');
 const store = require('./store');
+var path = require('path');
 
 function getDate() {
   const dateNow = new Date(Date.now());
@@ -31,13 +32,14 @@ const NoteForm = props => {
   const handleSubmit = event => {
     event.preventDefault();
     if (store.getState().noteInput !== ''){
-      store.dispatch({
-        type: 'NOTE_CREATED',
-        note: {
-          text: store.getState().noteInput,
-          date: getDate()
-        }
+      const postPath = path.join(__dirname, 'new', store.getState().noteInput);
+      const request = new Request(postPath, {
+        method: 'POST'
       });
+      fetch(request)
+        .then((result) => {
+          console.log(result);
+        })
     }
   };
   return (

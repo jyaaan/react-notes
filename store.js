@@ -1,6 +1,5 @@
 const Redux = require('redux');
-
-
+var path = require('path');
 
 const initialState = [
   { text: 'note1, hooray!', date: '4/30/2017' },
@@ -11,6 +10,8 @@ const notes = (state = initialState, action) => {
   switch (action.type) {
     case 'NOTE_CREATED':
       return state.concat(action.note);
+    case 'NOTES_LOADED':
+      return [...action.notes];
     default:
       return state;
   }
