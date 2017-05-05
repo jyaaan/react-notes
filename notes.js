@@ -1,13 +1,21 @@
 const React = require('react');
 const store = require('./store');
 
-
+function getDate() {
+  const dateNow = new Date(Date.now());
+  return (dateNow.getMonth() + 1 + '/' + dateNow.getDate() + '/' + dateNow.getFullYear());
+}
 
 const NotesList = props => {
   return (
     <ul>
       { props.notes.map((note, index) => {
-        return <li key={ index }>{note}</li>
+        return (
+          <li key={ index }>
+            <span>{ note.date }</span>
+            <p>{ note.text }</p>
+          </li>
+        )
       })}
     </ul>
   );
@@ -22,10 +30,15 @@ const NoteForm = props => {
   };
   const handleSubmit = event => {
     event.preventDefault();
-    store.dispatch({
-      type: 'NOTE_CREATED',
-      text: store.getState().noteInput
-    });
+    if (store.getState().noteInput !== ''){
+      store.dispatch({
+        type: 'NOTE_CREATED',
+        note: {
+          text: store.getState().noteInput,
+          date: getDate()
+        }
+      });
+    }
   };
   return (
     <div>

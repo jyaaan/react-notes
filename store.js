@@ -1,11 +1,16 @@
 const Redux = require('redux');
 
-const initialState = ['note1, hooray!', 'note2, boo!'];
+
+
+const initialState = [
+  { text: 'note1, hooray!', date: '4/30/2017' },
+  { text: 'note2, boo!', date: '4/30/2017' }
+];
 
 const notes = (state = initialState, action) => {
   switch (action.type) {
     case 'NOTE_CREATED':
-      return state.concat(action.text);
+      return state.concat(action.note);
     default:
       return state;
   }
