@@ -1,23 +1,27 @@
 const Redux = require('redux');
 
-const initialState = ['note1, hooray!', 'note2, boo!'];
+
+
+const initialState = [
+  { text: 'note1, hooray!', date: '4/30/2017' },
+  { text: 'note2, boo!', date: '4/30/2017' }
+];
 
 const notes = (state = initialState, action) => {
   switch (action.type) {
-    case 'LOG_NOTE':
-    case 'RETRIEVE_NOTE':
-    case 'DELETE_NOTE':
+    case 'NOTE_CREATED':
+      return state.concat(action.note);
     default:
       return state;
   }
 }
 
-const noteInput = (state = [], action) => {
+const noteInput = (state = '', action) => {
   switch (action.type) {
     case 'INPUT_CHANGED':
-      return 'will reflect change later';
+      return action.text;
     case 'NOTE_CREATED':
-      return 'note should have been created';
+      return '';
     default:
       return state;
   }

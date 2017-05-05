@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle": "browserify ./client/index.js -t babelify -o ./client/main.js"
+    "bundle": "watchify ./client/index.js -t babelify -o ./client/main.js"
   },
   "repository": {
     "type": "git",
