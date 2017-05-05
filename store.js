@@ -4,15 +4,14 @@ const initialState = ['note1, hooray!', 'note2, boo!'];
 
 const notes = (state = initialState, action) => {
   switch (action.type) {
-    case 'LOG_NOTE':
-    case 'RETRIEVE_NOTE':
-    case 'DELETE_NOTE':
+    case 'NOTE_CREATED':
+      return state.concat(action.text);
     default:
       return state;
   }
 }
 
-const noteInput = (state = [], action) => {
+const noteInput = (state = ['default text'], action) => {
   switch (action.type) {
     case 'INPUT_CHANGED':
       return 'will reflect change later';
