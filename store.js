@@ -1,6 +1,6 @@
 const Redux = require('redux');
 
-const initialState = ['note1', 'note2'];
+const initialState = ['note1, hooray!', 'note2, boo!'];
 
 const notes = (state = initialState, action) => {
   switch (action.type) {
