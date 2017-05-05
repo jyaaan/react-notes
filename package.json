@@ -2,10 +2,11 @@
   "name": "react-notes",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./server/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle": "watchify ./client/index.js -t babelify -o ./client/main.js"
+    "bundle": "watchify ./client/index.js -t babelify -o ./server/public/main.js",
+    "start": "node ."
   },
   "repository": {
     "type": "git",
