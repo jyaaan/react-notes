@@ -12,8 +12,20 @@ const notes = (state = initialState, action) => {
   }
 }
 
+const noteInput = (state = [], action) => {
+  switch (action.type) {
+    case 'INPUT_CHANGED':
+      return 'will reflect change later';
+    case 'NOTE_CREATED':
+      return 'note should have been created';
+    default:
+      return state;
+  }
+}
+
 const reducer = Redux.combineReducers({
-  notes
+  notes,
+  noteInput
 });
 
 const store = Redux.createStore(reducer);
